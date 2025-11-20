@@ -1,0 +1,1639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deenaprakash J - Professional Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #333;
+      line-height: 1.7;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+      opacity: 0.3;
+    }
+
+    header .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      animation: fadeInDown 1s ease;
+    }
+
+    header p {
+      margin-top: 15px;
+      font-size: 1.3rem;
+      opacity: 0.95;
+      font-weight: 300;
+      animation: fadeInUp 1s ease;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    nav {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 15px 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    nav a {
+      color: #1e3c72;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 15px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      background: #1e3c72;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    section {
+      background: white;
+      margin: 40px auto;
+      padding: 50px 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      max-width: 1200px;
+      animation: fadeIn 0.8s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h2 {
+      color: #1e3d72;
+      font-size: 2.2rem;
+      margin-bottom: 30px;
+      padding-bottom: 15px;
+      border-bottom: 4px solid #667eea;
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100px;
+      height: 4px;
+      background: #764ba2;
+    }
+
+    .about-content {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #555;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .skill-card {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+    }
+
+    .skill-card h3 {
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+      padding-bottom: 10px;
+    }
+
+    .skill-card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .skill-card li {
+      padding: 8px 0;
+      padding-left: 25px;
+      position: relative;
+    }
+
+    .skill-card li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    #project-docs {
+      background: #f4f7ff;
+    }
+
+    .section-intro {
+      color: #555;
+      font-size: 1.05rem;
+      max-width: 900px;
+      margin-bottom: 25px;
+    }
+
+    .project-docs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
+    }
+
+    .doc-card {
+      background: white;
+      border-radius: 14px;
+      padding: 25px;
+      border: 1px solid rgba(102, 126, 234, 0.2);
+      box-shadow: 0 15px 35px rgba(31, 38, 135, 0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .doc-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.08), rgba(118, 75, 162, 0.06));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 0;
+    }
+
+    .doc-card:hover::after {
+      opacity: 1;
+    }
+
+    .doc-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .doc-summary {
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tech-tag {
+      background: rgba(102, 126, 234, 0.15);
+      color: #1e3d72;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .doc-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .doc-button {
+      flex: 1 1 180px;
+      text-align: center;
+      padding: 12px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .doc-button.primary {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      box-shadow: 0 8px 20px rgba(102, 126, 234, 0.35);
+    }
+
+    .doc-button.ghost {
+      border: 2px solid #667eea;
+      color: #1e3d72;
+      background: white;
+    }
+
+    .doc-button:hover {
+      transform: translateY(-3px);
+    }
+
+    .doc-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 12px;
+    }
+
+    .gallery-thumb {
+      border: none;
+      padding: 0;
+      background: transparent;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery-thumb img {
+      width: 100%;
+      height: 110px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-thumb:hover {
+      transform: scale(1.03);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      z-index: 1000;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox figure {
+      max-width: 90vw;
+      max-height: 90vh;
+      text-align: center;
+      position: relative;
+    }
+
+    .lightbox img {
+      max-width: 100%;
+      max-height: 80vh;
+      border-radius: 12px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .lightbox figcaption {
+      color: #fff;
+      margin-top: 15px;
+      font-size: 1rem;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -15px;
+      right: -15px;
+      background: #ff6b6b;
+      border: none;
+      color: white;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 10px 20px rgba(255, 107, 107, 0.4);
+    }
+
+    #problem-solving {
+      background: #fff8f0;
+      border: 2px solid rgba(255, 153, 102, 0.3);
+    }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
+    }
+
+    .problem-card {
+      background: white;
+      border-radius: 14px;
+      padding: 25px;
+      box-shadow: 0 18px 35px rgba(255, 153, 102, 0.2);
+      border-left: 6px solid #ff9966;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .problem-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: #ff7a45;
+      font-weight: 600;
+    }
+
+    .problem-tag {
+      background: rgba(255, 153, 102, 0.15);
+      padding: 5px 12px;
+      border-radius: 16px;
+    }
+
+    .problem-steps {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+      color: #5c5c5c;
+    }
+
+    .problem-steps li {
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+
+    .problem-evidence {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+    }
+
+    .problem-impact {
+      font-size: 0.95rem;
+      color: #333;
+      background: rgba(255, 153, 102, 0.1);
+      padding: 10px 15px;
+      border-radius: 10px;
+      border: 1px dashed rgba(255, 153, 102, 0.4);
+    }
+
+    .project-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      z-index: 1100;
+    }
+
+    .project-modal.active {
+      display: flex;
+    }
+
+    .project-modal-content {
+      background: white;
+      max-width: 900px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      border-radius: 18px;
+      padding: 30px;
+      position: relative;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+    }
+
+    .project-modal-close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #ff6b6b;
+      border: none;
+      color: white;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 10px 20px rgba(255, 107, 107, 0.4);
+    }
+
+    .project-detail-template {
+      display: none;
+    }
+
+    .modal-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 15px 0;
+    }
+
+    .modal-tag {
+      background: rgba(102, 126, 234, 0.15);
+      color: #1e3d72;
+      padding: 6px 14px;
+      border-radius: 18px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .modal-highlights {
+      list-style: none;
+      padding-left: 0;
+      margin: 20px 0;
+    }
+
+    .modal-highlights li {
+      padding-left: 22px;
+      position: relative;
+      margin-bottom: 10px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .modal-highlights li::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: #667eea;
+      font-weight: bold;
+    }
+
+    .modal-tech-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 15px 0 0;
+      color: #4c4f66;
+      line-height: 1.7;
+    }
+
+    .modal-tech-list > li {
+      margin-bottom: 10px;
+    }
+
+    .modal-tech-list strong {
+      color: #1e3d72;
+    }
+
+    .modal-sublist {
+      list-style: disc;
+      padding-left: 20px;
+      margin-top: 8px;
+    }
+
+    .modal-sublist li {
+      margin-bottom: 6px;
+    }
+
+    .modal-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .modal-gallery .gallery-thumb img {
+      height: 130px;
+    }
+
+    .project-item {
+      background: #f8f9fa;
+      padding: 25px;
+      border-radius: 12px;
+      border-left: 5px solid #667eea;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .project-item:hover::before {
+      opacity: 1;
+    }
+
+    .project-item h3 {
+      margin: 0 0 12px 0;
+      color: #1e3d72;
+      font-size: 1.4rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-item p {
+      color: #666;
+      line-height: 1.7;
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-image {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 8px;
+      margin: 15px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .project-image::before {
+      content: '📷 Upload Project Image';
+      position: absolute;
+      z-index: 1;
+    }
+
+    .project-image img {
+      position: relative;
+      z-index: 2;
+    }
+
+    .company-projects {
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      border: 2px solid #667eea;
+    }
+
+    .company-projects h2 {
+      color: #1e3d72;
+    }
+
+    .document-link {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #667eea;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      font-weight: 600;
+    }
+
+    .document-link:hover {
+      background: #764ba2;
+      transform: translateX(5px);
+    }
+
+    .contact-section {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-align: center;
+    }
+
+    .contact-section h2 {
+      color: white;
+      border-bottom-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .contact-section h2::after {
+      background: white;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+      margin-top: 30px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      font-size: 1.2rem;
+    }
+
+    .contact-item a {
+      color: white;
+      text-decoration: none;
+      padding: 12px 25px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .contact-item a:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.05);
+    }
+
+    .education-item, .experience-item, .internship-item {
+      background: #f8f9fa;
+      padding: 25px;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      border-left: 5px solid #667eea;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .education-item:hover, .experience-item:hover, .internship-item:hover {
+      transform: translateX(5px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .education-item h3, .experience-item h3, .internship-item h3 {
+      color: #1e3d72;
+      margin: 0 0 10px 0;
+      font-size: 1.4rem;
+    }
+
+    .education-item .institution, .experience-item .company, .internship-item .company {
+      color: #667eea;
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    .education-item .degree, .experience-item .position, .internship-item .position {
+      color: #555;
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .education-item .duration, .experience-item .duration, .internship-item .duration {
+      color: #888;
+      font-size: 0.95rem;
+      font-style: italic;
+      margin-bottom: 15px;
+    }
+
+    .education-item ul, .experience-item ul, .internship-item ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 15px;
+    }
+
+    .education-item li, .experience-item li, .internship-item li {
+      padding: 8px 0;
+      padding-left: 25px;
+      position: relative;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .education-item li::before, .experience-item li::before, .internship-item li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: #667eea;
+      font-weight: bold;
+    }
+
+    .achievements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .achievement-card {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      color: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(245, 87, 108, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .achievement-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(245, 87, 108, 0.5);
+    }
+
+    .achievement-card h3 {
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+      padding-bottom: 10px;
+    }
+
+    .achievement-card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .achievement-card li {
+      padding: 8px 0;
+      padding-left: 25px;
+      position: relative;
+    }
+
+    .achievement-card li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: bold;
+    }
+
+    .college-projects {
+      background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+      border: 2px solid #667eea;
+    }
+
+    .college-projects h2 {
+      color: #1e3d72;
+    }
+
+    .career-summary {
+      background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+      border: 2px solid #667eea;
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #555;
+      padding: 30px;
+      border-radius: 12px;
+      margin-top: 20px;
+    }
+
+    footer {
+      background: #1e3c72;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 40px;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      header p {
+        font-size: 1rem;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .achievements-grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav ul {
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Deenaprakash J</h1>
+      <p>Automation Engineer | Network Security | Python scripting</p>
+      <p style="margin-top: 10px; font-size: 1rem; opacity: 0.9;">📞 +91 63849 10533 | 📧 deenaprakash33@gmail.com</p>
+    </div>
+  </header>
+
+  <nav>
+    <div class="container">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#key-highlights">Key Highlights</a></li>
+        <li><a href="#key-projects">Key Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#project-docs">Project Docs</a></li>
+        <li><a href="#problem-solving">Problem Solving</a></li>
+        <li><a href="#training">Training</a></li>
+        <li><a href="#internship">Internship</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section id="about">
+    <div class="container">
+      <h2>About Me</h2>
+      <div class="about-content">
+        <p>
+          I am an automation engineer specializing in Python, Ansible, and FortiGate firewall automation. I build scalable automation solutions, reporting systems, and web applications that help organizations improve efficiency, reduce manual work, and enhance network security.
+        </p>
+        <p>
+          With expertise in network automation, API integration, and DevOps practices, I deliver robust solutions that streamline operations and drive business value. My passion lies in creating intelligent systems that automate complex workflows and provide actionable insights.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="container">
+      <h2>Education</h2>
+      <div class="education-item">
+        <h3>B.Tech – Information Technology</h3>
+        <div class="institution">Dhanalakshmi Srinivasan Engineering College, Perambalur, Tamil Nadu</div>
+        <div class="duration">September 2021 – May 2024</div>
+        <ul>
+          <li>Cumulative GPA: 7.4/10.0</li>
+        </ul>
+      </div>
+      <div class="education-item">
+        <h3>Diploma in Mechanical Engineering (DME)</h3>
+        <div class="institution">Dhanalakshmi Srinivasan Polytechnic College, Perambalur, Tamil Nadu</div>
+        <div class="duration">July 2018 – April 2021</div>
+        <ul>
+          <li>Percentage: 85%</li>
+        </ul>
+      </div>
+      <div class="education-item">
+        <h3>SSLC</h3>
+        <div class="institution">St. Theresa Matriculation Higher Secondary School, Sendurai, Tamil Nadu</div>
+        <div class="duration">June 2017 – April 2018</div>
+        <ul>
+          <li>Percentage: 73%</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <h2>Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Programming Languages</h3>
+          <ul>
+            <li>Python</li>
+            <li>YAML</li>
+            <li>HTML/CSS</li>
+            <li>JavaScript</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <h3>Libraries & Frameworks</h3>
+          <ul>
+            <li>requests</li>
+            <li>BeautifulSoup</li>
+            <li>openpyxl</li>
+            <li>Node.js, React, Express</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <h3>Automation & DevOps</h3>
+          <ul>
+            <li>Ansible</li>
+            <li>REST API</li>
+            <li>Cron</li>
+            <li>Git, GitHub</li>
+            <li>Linux</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <h3>Networking & Security</h3>
+          <ul>
+            <li>TCP/IP, DNS, DHCP</li>
+            <li>VPNs, LAN/WAN setup</li>
+            <li>FortiGate</li>
+            <li>Firewall Automation</li>
+            <li>Network Monitoring</li>
+            <li>IDS/IPS</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <h3>Database & Tools</h3>
+          <ul>
+            <li>MySQL</li>
+            <li>PostgreSQL</li>
+            <li>Data Wrangling</li>
+            <li>RESTful APIs</li>
+            <li>API integration</li>
+            <li>Postman</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <h3>Cloud & Infrastructure</h3>
+          <ul>
+            <li>AWS S3</li>
+            <li>AWS Route 53</li>
+            <li>AWS Certificate Manager (ACM)</li>
+            <li>AWS EC2</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="key-highlights">
+    <div class="container">
+      <h2>Key Highlights</h2>
+      <div class="achievements-grid">
+        <div class="achievement-card">
+          <h3>Automation Scale</h3>
+          <ul>
+            <li>Automated 20+ FortiGate devices using Python & Ansible</li>
+          </ul>
+        </div>
+        <div class="achievement-card">
+          <h3>Reporting & Analytics</h3>
+          <ul>
+            <li>Built API-based reporting pipelines used daily across branches</li>
+          </ul>
+        </div>
+        <div class="achievement-card">
+          <h3>Monitoring Infrastructure</h3>
+          <ul>
+            <li>Developed a central monitoring portal with real-time metrics</li>
+          </ul>
+        </div>
+        <div class="achievement-card">
+          <h3>Security Operations</h3>
+          <ul>
+            <li>Created a policy audit web app used by operations team</li>
+          </ul>
+        </div>
+        <div class="achievement-card">
+          <h3>Mentorship</h3>
+          <ul>
+            <li>Mentored over 3+ students in Python + security</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="key-projects">
+    <div class="container">
+      <h2>Key Automation Projects</h2>
+      <p class="section-intro">
+        A selection of strategic automation initiatives delivered for VMSEC Technologies, spanning firewall infrastructure, network monitoring, and security compliance.
+      </p>
+      <div class="projects-grid">
+        <div class="project-item">
+          <h3>FortiGate Auto Backup Automation</h3>
+          <p>Python and Ansible workflow that runs scheduled backups for every managed firewall, cutting manual backup time to zero.</p>
+        </div>
+        <div class="project-item">
+          <h3>Firmware Version Checker</h3>
+          <p>API-driven script that inventories fleet firmware across branches and flags out-of-date builds before maintenance windows.</p>
+        </div>
+        <div class="project-item">
+          <h3>Device Monitoring & Reporting Suite</h3>
+          <p>Python + openpyxl reporting pipeline that visualizes health metrics and emails automated Excel scorecards.</p>
+        </div>
+        <div class="project-item">
+          <h3>WAN Link Health Monitoring</h3>
+          <p>Continuous telemetry collector that tracks latency, jitter, and packet loss, triggering alerts for degraded circuits.</p>
+        </div>
+        <div class="project-item">
+          <h3>Firmware Vulnerability Checker</h3>
+          <p>BeautifulSoup scraper that correlates Fortinet PSIRT advisories with deployed versions for proactive patching.</p>
+        </div>
+        <div class="project-item">
+          <h3>FortiGate Policy Audit Web App</h3>
+          <p>Node.js + React interface that surfaces risky firewall rules and produces audit-ready summaries.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="container">
+      <h2>Work Experience</h2>
+      <div class="experience-item">
+        <h3>Automation Engineer</h3>
+        <div class="company">VMSEC Technologies, Trichy</div>
+        <div class="duration">January 2025 – Present</div>
+        <ul>
+          <li>Developing automation solutions for network and security operations.</li>
+          <li>Managing the Valluvan Computer Academy branch at Jayamkondam to train students and early professionals while working on automation projects.</li>
+          <li>Building and deploying automation tools to support operational workflows and project delivery.</li>
+          <li>Working on development and operations of backend development, API integration, and structured automation processes.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="project-docs">
+    <div class="container">
+      <h2>Project Documentation & Output Gallery</h2>
+      <p class="section-intro">
+        Explore my automation deliverables with quick access to architecture notes, implementation playbooks, and the exact screenshots captured while validating outputs. Each tile now opens an on-page detail view so you can review documentation, highlights, and galleries without leaving the portfolio.
+      </p>
+
+      <div class="project-docs-grid">
+        <article class="doc-card" id="card-global-settings">
+          <div>
+            <h3>FortiGate Global & System Settings Automation</h3>
+            <p class="doc-summary">
+              Hardened baseline templates that standardize hostname, NTP, HA, and fabric services across every managed FortiGate before policy deployment, ensuring zero-drift device builds.
+            </p>
+          </div>
+          <div class="tech-tags">
+            <span class="tech-tag">FortiGate</span>
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Automation</span>
+            <span class="tech-tag">Best Practices</span>
+          </div>
+          <div class="doc-actions">
+            <a class="doc-button primary" href="#" data-project-modal="global-settings">View full project details</a>
+          </div>
+        </article>
+
+        <article class="doc-card" id="card-interface">
+          <div>
+            <h3>FortiGate Interface Configuration via Ansible</h3>
+            <p class="doc-summary">
+              Automated FortiGate interface provisioning using Ansible playbooks to ensure consistent, error-free network configuration. Simplifies deployment by applying standardized interface settings across multiple devices.            </p>
+          </div>
+          <div class="tech-tags">
+            <span class="tech-tag">Ansible</span>
+            <span class="tech-tag">YAML</span>
+            <span class="tech-tag">FortiOS API</span>
+            <span class="tech-tag">CI-ready</span>
+          </div>
+          <div class="doc-actions">
+            <a class="doc-button primary" href="#" data-project-modal="interface-config">View full project details</a>
+          </div>
+          <div class="doc-gallery">
+            <button class="gallery-thumb" data-full="assets/images/ansible/ansible-interface-config.jpeg" data-caption="Ansible play recap confirming interface pushes">
+              <img src="assets/images/ansible/ansible-interface-config.jpeg" alt="Ansible interface configuration output" loading="lazy" />
+            </button>
+          </div>
+        </article>
+
+        <article class="doc-card" id="card-policy">
+          <div>
+            <h3>Firewall Policy audit and automation</h3>
+            <p class="doc-summary">
+              Automated firewall policy auditing system that analyzes configurations, identifies security risks, and ensures compliance. Includes end-to-end automation to generate detailed reports with zero manual intervention.            </p>
+          </div>
+          <div class="tech-tags">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">REST API</span>
+            <span class="tech-tag">Security</span>
+            <span class="tech-tag">javascript</span>
+            <span class="tech-tag">html</span>
+            <span class="tech-tag">css</span>
+            <span class="tech-tag">PostgreSQL</span>
+           
+          </div>
+          <div class="doc-actions">
+            <a class="doc-button primary" href="#" data-project-modal="policy-automation">View full project details</a>
+          </div>
+        </article>
+
+        <article class="doc-card" id="card-backup">
+          <div>
+            <h3>FortiGate Auto Backup & Restore</h3>
+            <p class="doc-summary">
+              Scheduled backup workflow that snapshots running configs, encrypts archives, and offers one-click restore pipelines across every branch firewall.
+            </p>
+          </div>
+          <div class="tech-tags">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Automation</span>
+            <span class="tech-tag">Scheduling</span>
+            <span class="tech-tag">Disaster Recovery</span>
+          </div>
+          <div class="doc-actions">
+            <a class="doc-button primary" href="#" data-project-modal="auto-backup">View full project details</a>
+          </div>
+          <div class="doc-gallery">
+            <button class="gallery-thumb" data-full="assets/images/ansible/auto-backup-output.jpeg" data-caption="Daily backup success log from automation run">
+              <img src="assets/images/ansible/auto-backup-output.jpeg" alt="Auto backup workflow output" loading="lazy" />
+            </button>
+          </div>
+        </article>
+
+        <article class="doc-card" id="card-monitoring">
+          <div>
+            <h3>Device Monitoring & Reporting Portal</h3>
+            <p class="doc-summary">
+              A centralized portal that monitors device health, performance, and system status in real time. Automatically generates detailed reports to help teams track trends and ensure proactive maintenance.            </p>
+          </div>
+          <div class="tech-tags">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">openpyxl</span>
+            <span class="tech-tag">Reporting</span>
+            <span class="tech-tag">Visualization</span>
+          </div>
+          <div class="doc-actions">
+            <a class="doc-button primary" href="#" data-project-modal="monitoring">View full project details</a>
+          </div>
+          <div class="doc-gallery">
+            <button class="gallery-thumb" data-full="assets/images/monitoring/monitoring-dashboard-status.jpeg" data-caption="Live device status dashboard">
+              <img src="assets/images/monitoring/monitoring-dashboard-status.jpeg" alt="Device monitoring dashboard card 1" loading="lazy" />
+            </button>
+            <button class="gallery-thumb" data-full="assets/images/monitoring/monitoring-dashboard-health.jpeg" data-caption="Application-level health summary">
+              <img src="assets/images/monitoring/monitoring-dashboard-health.jpeg" alt="Device monitoring dashboard card 2" loading="lazy" />
+            </button>
+            <button class="gallery-thumb" data-full="assets/images/monitoring/monitoring-dashboard-alerts.jpeg" data-caption="Alert feed extracted from telemetry pipeline">
+              <img src="assets/images/monitoring/monitoring-dashboard-alerts.jpeg" alt="Device monitoring dashboard card 3" loading="lazy" />
+            </button>
+          </div>
+        </article>
+      </div>
+      <div class="project-detail-template" id="project-detail-global-settings">
+        <h3>FortiGate Global & System Settings Automation</h3>
+        <p>
+          End-to-end templates that normalize hostname, timezone, telemetry connectors, and admin security controls before any policy work begins.
+        </p>
+        <div class="modal-tags">
+          <span class="modal-tag">Python</span>
+          <span class="modal-tag">FortiOS</span>
+          <span class="modal-tag">Baseline</span>
+          <span class="modal-tag">Automation</span>
+        </div>
+        <ul class="modal-highlights">
+          <li>Applies hardened banners, trusted hosts, and HA pre-checks in a single execution.</li>
+          <li>Bootstraps fabric connectors plus telemetry subscriptions for downstream monitoring.</li>
+          <li>Generates change logs and rollback bundles for CAB-ready reviews.</li>
+        </ul>
+      </div>
+
+      <div class="project-detail-template" id="project-detail-interface-config">
+        <h3>FortiGate Interface Configuration via Ansible</h3>
+        <p>
+          Declarative interface provisioning pipeline that converts YAML intents into fully configured WAN/LAN segments with DHCP scopes and VRRP/SD-WAN metadata.
+        </p>
+        <div class="modal-tags">
+          <span class="modal-tag">Ansible</span>
+          <span class="modal-tag">YAML</span>
+          <span class="modal-tag">FortiOS API</span>
+          <span class="modal-tag">CI/CD</span>
+        </div>
+        <ul class="modal-highlights">
+          <li>Validates interface definitions with schema checks before touching devices.</li>
+          <li>Supports parallel onboarding for branches, reducing manual CLI windows.</li>
+          <li>Publishes JSON change manifests and runbooks for Ops teams.</li>
+        </ul>
+        <div class="modal-gallery">
+          <button class="gallery-thumb" data-full="assets/images/ansible/ansible-interface-config.jpeg" data-caption="Ansible play recap confirming interface pushes">
+            <img src="assets/images/ansible/ansible-interface-config.jpeg" alt="Ansible play recap" loading="lazy" />
+          </button>
+        </div>
+      </div>
+
+      <div class="project-detail-template" id="project-detail-policy-automation">
+        <h3>Firewall Policy audit and automation</h3>
+        <p>
+          Automated firewall policy auditing system that analyzes configurations, identifies security risks, and ensures compliance. Includes end-to-end automation to generate detailed reports with zero manual intervention.
+        </p>
+        <div class="modal-tags">
+          <span class="modal-tag">Python</span>
+          <span class="modal-tag">REST API</span>
+          <span class="modal-tag">Security</span>
+          <span class="modal-tag">postgresql</span>
+          <span class="modal-tag">javascript</span>
+          <span class="modal-tag">html</span>
+          <span class="modal-tag">css</span>
+        </div>
+        <ul class="modal-highlights">
+          <li>Audits firewall policies to identify unused rules, risky configurations, and compliance gaps.</li>
+          <li>Detects differences between uploaded configuration files and the latest firewall state.</li>
+          <li>Generates detailed compliance reports with timestamps, severity levels, and recommended fixes.</li>
+        </ul>
+      </div>
+
+      <div class="project-detail-template" id="project-detail-auto-backup">
+        <h3>FortiGate Auto Backup & Restore</h3>
+        <p>
+          Scheduled workflow that snapshots running configs, encrypts artifacts, and provides one-click restore options across every managed firewall.
+        </p>
+        <div class="modal-tags">
+          <span class="modal-tag">Python</span>
+          <span class="modal-tag">Scheduling</span>
+          <span class="modal-tag">Disaster Recovery</span>
+          <span class="modal-tag">Automation</span>
+        </div>
+        <ul class="modal-highlights">
+          <li>Encrypts backups with device metadata for quick search and retrieval.</li>
+          <li>Implements retry logic and webhook notifications for failed snapshots.</li>
+          <li>Ships restore scripts for both same-version and staged-upgrade scenarios.</li>
+        </ul>
+        <div class="modal-gallery">
+          <button class="gallery-thumb" data-full="assets/images/ansible/auto-backup-output.jpeg" data-caption="Daily backup success log from automation run">
+            <img src="assets/images/ansible/auto-backup-output.jpeg" alt="Backup automation log" loading="lazy" />
+          </button>
+        </div>
+      </div>
+
+      <div class="project-detail-template" id="project-detail-monitoring">
+        <h3>Device Monitoring & Reporting Portal</h3>
+        <p>
+          Lightweight telemetry portal that consolidates WAN KPIs, device uptime, and SLA compliance, exporting formatted Excel packs automatically.
+        </p>
+        <div class="modal-tags">
+          <span class="modal-tag">Python</span>
+          <span class="modal-tag">openpyxl</span>
+          <span class="modal-tag">Visualization</span>
+          <span class="modal-tag">Reporting</span>
+        </div>
+      <div class="modal-tech">
+        <h4>Technologies Used</h4>
+        <ul class="modal-tech-list">
+          <li><strong>Programming Language:</strong> Python</li>
+          <li><strong>APIs:</strong> Fortinet REST API for device telemetry and health metrics</li>
+          <li>
+            <strong>Libraries:</strong>
+            <ul class="modal-sublist">
+              <li><code>requests</code> for authenticated API interaction</li>
+              <li><code>openpyxl</code> &amp; <code>pandas</code> for Excel report generation, formatting, and structured exports</li>
+              <li><code>smtplib</code> for SMTP connectivity when emailing automated scorecards</li>
+              <li><code>pandas</code> for reshaping datasets prior to Excel publishing</li>
+              <li><code>os</code> for accessing environment variables to keep credentials out of code</li>
+              <li><code>json</code> for parsing API responses and configuration files</li>
+            </ul>
+          </li>
+          <li><strong>Security:</strong> Secure credential and configuration management to avoid hardcoding sensitive data.</li>
+        </ul>
+      </div>
+        <ul class="modal-highlights">
+          <li>Aggregates telemetry via REST APIs and syslog streams into a unified dataset.</li>
+          <li>Creates Excel and CSV scorecards with slicers for leadership reviews.</li>
+          <li>Supports alert routing for latency spikes, packet loss, and down devices.</li>
+        </ul>
+        <div class="modal-gallery">
+          <button class="gallery-thumb" data-full="assets/images/monitoring/monitoring-dashboard-status.jpeg" data-caption="Live device status dashboard">
+            <img src="assets/images/monitoring/monitoring-dashboard-status.jpeg" alt="Live device status dashboard" loading="lazy" />
+          </button>
+          <button class="gallery-thumb" data-full="assets/images/monitoring/monitoring-dashboard-health.jpeg" data-caption="Application-level health summary">
+            <img src="assets/images/monitoring/monitoring-dashboard-health.jpeg" alt="Application-level health summary" loading="lazy" />
+          </button>
+          <button class="gallery-thumb" data-full="assets/images/monitoring/monitoring-dashboard-alerts.jpeg" data-caption="Alert feed extracted from telemetry pipeline">
+            <img src="assets/images/monitoring/monitoring-dashboard-alerts.jpeg" alt="Alert feed" loading="lazy" />
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="problem-solving">
+    <div class="container">
+      <h2>Problem-Solving Logs</h2>
+      <p class="section-intro">
+        Every automation rollout surfaces real-world blockers. These logs capture the exact issue snapshots from my `Problem_solving` evidence folder and show how I diagnosed and fixed them across Python scripting, Ansible playbooks, and FortiGate auto-backup routines.
+      </p>
+
+      <div class="problem-grid">
+        <article class="problem-card">
+          <div class="problem-meta">
+            <span class="problem-tag">Python Automation</span>
+            <span class="problem-tag">API Debugging</span>
+          </div>
+          <h3>Telemetry Parser Returning Incomplete Records</h3>
+          <p>
+            During a monitoring rollout the Python ingestion job intermittently dropped entries, resulting in mismatched WAN health dashboards.
+          </p>
+          <ul class="problem-steps">
+            <li><strong>Issue:</strong> Pagination tokens were not persisted between retries, leaving gaps in the reporting dataset.</li>
+            <li><strong>Investigation:</strong> Replayed the failing batch with verbose logging enabled (screenshot evidence) to isolate the missing offset.</li>
+            <li><strong>Resolution:</strong> Introduced an idempotent checkpoint system and added schema validation before exporting to Excel.</li>
+          </ul>
+          <div class="problem-impact">
+            Restored 100% data fidelity for the reporting pipeline and prevented stale SLA alerts.
+          </div>
+          <div class="problem-evidence">
+            <button class="gallery-thumb" data-full="assets/images/problem-solving/telemetry-parser-debug.jpeg" data-caption="Debug snapshot showing truncated telemetry payloads">
+              <img src="assets/images/problem-solving/telemetry-parser-debug.jpeg" alt="Telemetry parser debug evidence" loading="lazy" />
+            </button>
+          </div>
+        </article>
+
+        <article class="problem-card">
+          <div class="problem-meta">
+            <span class="problem-tag">Ansible</span>
+            <span class="problem-tag">Auto Backup</span>
+          </div>
+          <h3>Ansible Auto Backup Play Failing Mid-Run</h3>
+          <p>
+            The scheduled FortiGate backup workflow began timing out on certain branches, leaving devices without fresh recovery points.
+          </p>
+          <ul class="problem-steps">
+            <li><strong>Issue:</strong> Fact gathering exceeded the timeout when HA pairs were in sync failover.</li>
+            <li><strong>Investigation:</strong> Captured the controller output (see evidence) and profiled task durations per host.</li>
+            <li><strong>Resolution:</strong> Split the play into lightweight discovery and backup roles, added exponential backoff, and routed failures to a webhook.</li>
+          </ul>
+          <div class="problem-impact">
+            Reduced end-to-end backup time by 37% and ensured every firewall produced nightly encrypted snapshots.
+          </div>
+          <div class="problem-evidence">
+            <button class="gallery-thumb" data-full="assets/images/problem-solving/ansible-backup-failure.jpeg" data-caption="Task failure output before implementing retry logic">
+              <img src="assets/images/problem-solving/ansible-backup-failure.jpeg" alt="Ansible backup failure evidence" loading="lazy" />
+            </button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="training">
+    <div class="container">
+      <h2>Training & Mentorship</h2>
+      <div class="experience-item">
+        <h3>Technical Instructor & Mentor</h3>
+        <div class="company">Community & Corporate Cohorts</div>
+        <div class="duration">Ongoing</div>
+        <p style="color: #555; margin-bottom: 15px;">
+          Alongside project development, I conduct hands-on training programs that help students and early professionals build industry-ready skills.
+        </p>
+        <ul>
+          <li>Deliver instructor-led sessions on Python programming, covering automation scripting and best practices.</li>
+          <li>Teach core and advanced concepts of network security, including firewall policies, IDS/IPS, and threat mitigation.</li>
+          <li>Guide learners through practical automation use cases with Ansible, REST APIs, and integration workflows.</li>
+          <li>Provide mentorship on project structuring, documentation, and preparing for real-world deployments.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="achievements">
+    <div class="container">
+      <h2>Achievements & Certifications</h2>
+      <div class="achievements-grid">
+        <div class="achievement-card">
+          <h3>Online Certifications</h3>
+          <ul>
+            <li>Crash Course on Python — Coursera</li>
+            <li>Completed certified online training in Python programming</li>
+          </ul>
+        </div>
+        <div class="achievement-card">
+          <h3>Fortinet Certifications</h3>
+          <ul>
+            <li>Fortinet Certified Fundamentals (FCF)</li>
+            <li>Fortinet Certified Associate (FCA)</li>
+            <li>FortiGate 7.4 Administrator — Fortinet Certified Professional (FCP)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="internship">
+    <div class="container">
+      <h2>Summer Internship</h2>
+      <div class="internship-item">
+        <h3>Python Developer Intern</h3>
+        <div class="company">Shiash Info Solutions Pvt. Ltd., Chennai</div>
+        <ul>
+          <li>Assisted in the development and testing of Python-based applications.</li>
+          <li>Wrote clean, maintainable code for web scraping and data processing tasks.</li>
+          <li>Optimized Python scripts to improve operational efficiency.</li>
+          <li>Collaborated with developers to build and test RESTful APIs.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2>Get In Touch</h2>
+      <div class="contact-info">
+        <div class="contact-item">
+          <a href="tel:+916384910533">+91 63849 10533</a>
+        </div>
+        <div class="contact-item">
+          <a href="mailto:deenaprakash33@gmail.com">deenaprakash33@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <a href="https://www.linkedin.com/in/deenaprakash-j-176108209" target="_blank">LinkedIn Profile</a>
+        </div>
+        <div class="contact-item">
+          <a href="https://github.com/DEENAPRAKASH" target="_blank">GitHub Profile</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Expanded project output">
+    <figure>
+      <button class="lightbox-close" type="button" aria-label="Close preview">&times;</button>
+      <img src="" alt="Expanded project output preview" />
+      <figcaption></figcaption>
+    </figure>
+  </div>
+
+  <div class="project-modal" id="project-modal" aria-hidden="true" role="dialog" aria-label="Project details popup">
+    <div class="project-modal-content">
+      <button class="project-modal-close" type="button" aria-label="Close project details">&times;</button>
+      <div id="project-modal-body"></div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Deenaprakash J | Professional Portfolio | All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImage = lightbox.querySelector('img');
+      const lightboxCaption = lightbox.querySelector('figcaption');
+      const lightboxClose = lightbox.querySelector('.lightbox-close');
+
+      const projectModal = document.getElementById('project-modal');
+      const projectModalBody = document.getElementById('project-modal-body');
+      const projectModalClose = projectModal.querySelector('.project-modal-close');
+
+      function openLightbox(src, caption) {
+        lightboxImage.src = src;
+        lightboxCaption.textContent = caption || '';
+        lightbox.classList.add('active');
+        lightbox.setAttribute('aria-hidden', 'false');
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('active');
+        lightbox.setAttribute('aria-hidden', 'true');
+        lightboxImage.src = '';
+        lightboxCaption.textContent = '';
+      }
+
+      function openProjectModal(templateId) {
+        const template = document.getElementById(`project-detail-${templateId}`);
+        if (!template) return;
+        projectModalBody.innerHTML = template.innerHTML;
+        projectModal.classList.add('active');
+        projectModal.setAttribute('aria-hidden', 'false');
+      }
+
+      function closeProjectModal() {
+        projectModal.classList.remove('active');
+        projectModal.setAttribute('aria-hidden', 'true');
+        projectModalBody.innerHTML = '';
+      }
+
+      document.addEventListener('click', (event) => {
+        const thumb = event.target.closest('.gallery-thumb');
+        if (thumb) {
+          const src = thumb.getAttribute('data-full');
+          const caption = thumb.getAttribute('data-caption');
+          openLightbox(src, caption);
+          return;
+        }
+
+        const modalTrigger = event.target.closest('[data-project-modal]');
+        if (modalTrigger) {
+          event.preventDefault();
+          const projectId = modalTrigger.getAttribute('data-project-modal');
+          openProjectModal(projectId);
+        }
+      });
+
+      lightboxClose.addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', (event) => {
+        if (event.target === lightbox) {
+          closeLightbox();
+        }
+      });
+
+      projectModalClose.addEventListener('click', closeProjectModal);
+      projectModal.addEventListener('click', (event) => {
+        if (event.target === projectModal) {
+          closeProjectModal();
+        }
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+          if (lightbox.classList.contains('active')) {
+            closeLightbox();
+          }
+          if (projectModal.classList.contains('active')) {
+            closeProjectModal();
+          }
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
