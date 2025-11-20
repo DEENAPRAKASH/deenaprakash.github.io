@@ -24,25 +24,6 @@ portfolio/
 └── .gitignore               # Git ignore file
 ```
 
-## Features
-
-- **Responsive Design** - Works on desktop, tablet, and mobile devices
-- **Interactive Elements** - Lightbox image galleries and project modals
-- **Smooth Animations** - CSS transitions and fade-in effects
-- **Accessibility** - Semantic HTML and ARIA labels
-- **SEO Optimized** - Proper meta tags and structured content
-
-## Hosting on GitHub Pages
-
-1. Create a GitHub repository named `username.github.io`
-2. Clone this repository to your local machine
-3. Push the contents to your GitHub repository
-4. Your portfolio will be live at `https://username.github.io`
-
-Alternatively, for a project repository:
-1. Create a repository named `portfolio`
-2. Enable GitHub Pages in Settings (GitHub Pages → Source → Main branch)
-3. Your portfolio will be live at `https://username.github.io/portfolio`
 
 ## Contact
 
@@ -54,3 +35,4 @@ Alternatively, for a project repository:
 ---
 
 © 2025 Deenaprakash J | All Rights Reserved
+
